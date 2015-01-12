@@ -139,6 +139,7 @@ DONT_DEXPREOPT_PREBUILTS := true
 
 # RIL 
 BOARD_RIL_CLASS := ../../../device/htc/msm7x27a-common/ril
+BOARD_RIL_NO_CELLINFOLIST := true
 
 # Use Cpu Upload path (webkit)
 TARGET_FORCE_CPU_UPLOAD := true
