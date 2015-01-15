@@ -2,6 +2,12 @@
 # Property overrides msm7x27a
 #
 
+# Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+   mobiledata.interfaces=rmnet0 \
+   rild.libpath=/system/lib/libhtc_ril.so \
+   ro.telephony.ril_class=HtcMsm7x27aRIL
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     ro.telephony.call_ring.multiple=false \
@@ -21,6 +27,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=2m
+
+# Use awesome player instead of nuplayer	
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.media.use-awesome=true
 	
 # Disable atlas services on low-ram targets
 PRODUCT_PROPERTY_OVERRIDES += \
