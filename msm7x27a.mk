@@ -14,7 +14,9 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/htc/msm7x27a-common
+ifndef COMMON_PATH
+$(error "Please define COMMON_PATH in device BoardConfig file")
+endif
 
 # proprietary side of the device
 # Inherit from those products. Most specific first
@@ -24,10 +26,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 
-PRODUCT_PACKAGE_OVERLAYS += device/htc/msm7x27a-common/overlay
+PRODUCT_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
 # System Properties
--include $(COMMON_PATH)/system_prop.mk
+# include $(COMMON_PATH)/system_prop.mk
 
 PRODUCT_BOOT_JARS += qcmediaplayer
 
@@ -47,9 +49,8 @@ PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
     audio_policy.msm7x27a \
     audio.a2dp.default \
-	audio.r_submix.default \
+    audio.r_submix.default \
     audio.usb.default \
-    audio_policy.conf \
     libaudioutils \
     libaudio-resampler
 
@@ -91,7 +92,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
+   frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
 
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi

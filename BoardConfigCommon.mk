@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#LOCAL_COMMON_PATH := device/htc/msm7x27a-common
+
+BOARD_VENDOR := htc
 
 TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
 TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
@@ -41,7 +44,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 # Compiler Optimization
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
-TARGET_USE_O3 := true
+#TARGET_USE_O3 := true
 
 # Optimisations used by Qualcomm
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
@@ -77,7 +80,7 @@ TARGET_USES_LOGD := false
 include device/qcom/sepolicy/sepolicy.mk
 
 # OpenGL drivers config file path
-BOARD_EGL_CFG := $(LOCAL_PATH)/prebuilt/lib/egl/egl.cfg
+BOARD_EGL_CFG := $(COMMON_PATH)/prebuilt/lib/egl/egl.cfg
 
 # Graphics
 BOARD_USES_QCOM_HARDWARE := true
@@ -123,7 +126,7 @@ endif
 DONT_DEXPREOPT_PREBUILTS := true
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/htc/msm7x27a-common/ril
+BOARD_RIL_CLASS := ../../../$(COMMON_PATH)/ril
 
 # Use Cpu Upload path (webkit)
 TARGET_FORCE_CPU_UPLOAD := true
@@ -133,9 +136,6 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Custom liblights
 TARGET_PROVIDES_LIBLIGHT := true
-
-# Fonts
-#SMALLER_FONT_FOOTPRINT := true
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
