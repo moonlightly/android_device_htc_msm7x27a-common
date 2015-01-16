@@ -16,6 +16,8 @@
 
 BOARD_VENDOR := htc
 
+TARGET_SPECIFIC_HEADER_PATH := device/htc/msm7x27a-common/include
+
 TARGET_GLOBAL_CFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
 TARGET_GLOBAL_CPPFLAGS += -mfloat-abi=softfp -mfpu=neon-vfpv4 -mtune=cortex-a5
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
