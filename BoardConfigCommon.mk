@@ -82,7 +82,7 @@ TARGET_USES_LOGD := false
 include device/qcom/sepolicy/sepolicy.mk
 
 # OpenGL drivers config file path
-BOARD_EGL_CFG := $(COMMON_PATH)/prebuilt/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/htc/msm7x27a-common/prebuilt/lib/egl/egl.cfg
 
 # Graphics
 BOARD_USES_QCOM_HARDWARE := true
