@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 PRODUCT_PACKAGE_OVERLAYS += device/htc/msm7x27a-common/overlay
 
 # System Properties
-# include device/htc/msm7x27a-common/system_prop.mk
+-include device/htc/msm7x27a-common/system_prop.mk
 
 PRODUCT_BOOT_JARS += qcmediaplayer
 
