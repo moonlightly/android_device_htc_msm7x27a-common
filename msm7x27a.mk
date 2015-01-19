@@ -14,22 +14,16 @@
 # limitations under the License.
 #
 
-ifndef COMMON_PATH
-$(error "Please define COMMON_PATH in device BoardConfig file")
-endif
-
-# proprietary side of the device
 # Inherit from those products. Most specific first
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 
-PRODUCT_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/htc/msm7x27a-common/overlay
 
 # System Properties
-# include $(COMMON_PATH)/system_prop.mk
+# include device/htc/msm7x27a-common/system_prop.mk
 
 PRODUCT_BOOT_JARS += qcmediaplayer
 
@@ -54,18 +48,22 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     libaudio-resampler
 
-# Other
+ # GPS
 PRODUCT_PACKAGES += \
-    dexpreopt \
-    lights.msm7x27a \
-    gps.msm7x27a \
-    librpc \
-    power.msm7x27a \
-    libhealthd.msm7x27a \
-    com.android.future.usb.accessory \
-    libnetcmdiface \
-    HwaSettings
+    gps.msm7x27a
+
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm7x27a
+
+# Power HAL
+PRODUCT_PACKAGES += \
+    power.msm7x27a
     
+#Health HAL
+PRODUCT_PACKAGES += \
+    libhealthd.msm7x27a
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm7x27a \
@@ -85,14 +83,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd \
-    wpa_supplicant
+    wpa_supplicant \
+    libnetcmdiface
+
+# Other
+PRODUCT_PACKAGES += \
+    dexpreopt \
+    librpc \
+    com.android.future.usb.accessory \
+    HwaSettings
  
  # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-   frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
 
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
