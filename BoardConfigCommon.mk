@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#LOCAL_COMMON_PATH := device/htc/msm7x27a-common
 
 BOARD_VENDOR := htc
 
@@ -81,6 +80,13 @@ TARGET_USES_LOGD := false
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
+# GPS
+#BOARD_USES_QCOM_LIBRPC := true
+BOARD_USES_QCOM_GPS := true
+#BOARD_USES_QCOM_LIBS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x27a
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+
 # OpenGL drivers config file path
 BOARD_EGL_CFG := device/htc/msm7x27a-common/prebuilt/lib/egl/egl.cfg
 
@@ -127,8 +133,8 @@ ifeq ($(HOST_OS),linux)
 endif
 DONT_DEXPREOPT_PREBUILTS := true
 
-# RIL
-BOARD_RIL_CLASS := ../../../$(COMMON_PATH)/ril
+# RIL 
+BOARD_RIL_CLASS := ../../../device/htc/msm7x27a-common/ril
 
 # Use Cpu Upload path (webkit)
 TARGET_FORCE_CPU_UPLOAD := true
