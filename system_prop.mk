@@ -21,13 +21,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik Tweaks	
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.jit.codecachesize=0 \
-    dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapgrowthlimit=48m \
-    dalvik.vm.heapsize=64m \
-    dalvik.vm.heaptargetutilization=0.75 \
-    dalvik.vm.heapminfree=512k \
-    dalvik.vm.heapmaxfree=2m
+    dalvik.vm.jit.codecachesize=0
 
 # Use awesome player instead of nuplayer	
 PRODUCT_PROPERTY_OVERRIDES += \
