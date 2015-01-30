@@ -110,3 +110,7 @@ PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_TAGS += dalvik.gc.type-precise	         
+
+# OpenDelta
+PRODUCT_PROPERTY_OVERRIDES += ro.delta.version=VERSION
+PRODUCT_PACKAGES += OpenDelta
