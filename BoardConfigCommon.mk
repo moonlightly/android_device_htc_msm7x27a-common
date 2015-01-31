@@ -76,9 +76,6 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 TARGET_BOOTANIMATION_HALF_RES := true
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
-# LOGD
-TARGET_USES_LOGD := false
-
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
