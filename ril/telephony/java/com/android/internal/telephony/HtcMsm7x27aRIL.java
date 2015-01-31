@@ -28,7 +28,6 @@ import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.telephony.CellInfo;
 import android.telephony.Rlog;
-import android.telephony.SignalStrength;
 
 import com.android.internal.telephony.uicc.IccCardApplicationStatus;
 import com.android.internal.telephony.uicc.IccCardStatus;
@@ -37,7 +36,7 @@ import com.android.internal.telephony.dataconnection.DataCallResponse;
 
 import java.util.ArrayList;
 
-public class HtcMsm7x27aRIL extends RIL implements CommandsInterface {
+public class HTCQualcommRIL extends RIL implements CommandsInterface {
 
     private static final int RIL_UNSOL_ENTER_LPM = 1523;
     private static final int RIL_UNSOL_CDMA_3G_INDICATOR = 3009;
@@ -48,35 +47,8 @@ public class HtcMsm7x27aRIL extends RIL implements CommandsInterface {
     private static final int RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED = 21005;
     private static final int RIL_UNSOL_RESPONSE_DATA_NETWORK_STATE_CHANGED = 21007;
 
-    public HtcMsm7x27aRIL(Context context, int networkMode, int cdmaSubscription) {
-        super(context, networkMode, cdmaSubscription, null);
-        mQANElements = 5;
-    }
-
-    public HtcMsm7x27aRIL(Context context, int networkMode, int cdmaSubscription,
-            Integer instanceId) {
-        super(context, networkMode, cdmaSubscription, instanceId);
-        mQANElements = 5;
-    }
-
-    @Override
-    protected Object
-    responseSignalStrength(Parcel p) {
-        int numInts = 12;
-        int response[];
-
-        response = new int[numInts];
-        for (int i = 0 ; i < numInts ; i++) {
-            if (i > 6 && i < 12) {
-		//We dont have LTE so mark these as INVALID
-                response[i] = SignalStrength.INVALID;
-            } else {
-                response[i] = p.readInt();
-            }
-        }
-
-        return new SignalStrength(response[0], response[1], response[2], response[3], response[4], response[5],
-                response[6], response[7],response[8], response[9], response[10], response[11], true);
+    public HTCQualcommRIL(Context context, int networkMode, int cdmaSubscription) {
+        super(context, networkMode, cdmaSubscription);
     }
 
     @Override
