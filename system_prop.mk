@@ -35,3 +35,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Newer camera API isn't supported.
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
+    
+# Optimize Art
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-flags "--compiler-filter=interpret-only" \
+    dalvik.vm.image-dex2oat-flags "" \
+    dalvik.vm.profiler=1 \
+    dalvik.vm.isa.arm.features=div
