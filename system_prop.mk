@@ -42,3 +42,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-flags "" \
     dalvik.vm.profiler=1 \
     dalvik.vm.isa.arm.features=div
+    
+# OMX - Media
+#37491 is decimal sum of supported codecs in AAL
+#codecs: AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
+PRODUCT_PROPERTY_OVERRIDES += \
+    mm.enable.qcom_parser=37491 \
+    mmp.enable.3g2=true \
+    mm.enable.smoothstreaming=true \
+    mm.disable.sec_smoothstreaming=true \
+    media.aac_51_output_enabled=true
+
+# VIDC: debug_levels
+# 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS
+PRODUCT_PROPERTY_OVERRIDES += \
+    vidc.debug.level=1
